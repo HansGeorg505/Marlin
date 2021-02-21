@@ -46,7 +46,7 @@
 // #define XY2_V6_255_BMG_TMC 1
 // #define XY2_V6_255M_BMG_TMC 1
 
-// #define XY2_V5_255_NO_TITAN_TMC 1
+ #define XY2_V5_255_NO_TITAN_TMC 1
 // #define XY2_V5_255_TITAN_TMC 1
 // #define XY2_V5_255_TITAN_NO_TMC 1
 // #define XY2_V5_255_NO_TITAN_NO_TMC 1
@@ -58,7 +58,7 @@
 // #define BTT_SKR_TURBO_330_NO_TITAN_TMC_2209_UART 1
 
 // #define TFT_LVGL_UI
-// #define TFT_CLASSIC_UI
+ #define TFT_CLASSIC_UI
 // #define TFT_COLOR_UI
 
 #if V6_330_TITAN_TMC
@@ -993,10 +993,9 @@
 // Mechanical endstop with COM to ground and NC to Signal uses "false" here (most common setup).
 #define X_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
 #define Y_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
-#define Z_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
-#define X_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
-#define Y_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
-#define Z_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
+#define Z_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.//#define X_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
+//#define Y_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
+//#define Z_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define Z_MIN_PROBE_ENDSTOP_INVERTING true // Set to true to invert the logic of the probe.
 
 /**
@@ -1115,7 +1114,7 @@
  * Default Axis Steps Per Unit (steps/mm)
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2...]]
- */
+  
 #if WITH_TMC && WITH_BMG
   #define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 800, 830 }
 #elif WITH_TMC && WITH_TITAN
@@ -1135,8 +1134,9 @@
     #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 93 }
   #endif
 #endif
+*/
 
-// #define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 800, 420 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 800, 137 }
 //TITAN EXTRUDER:
 //#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 92.6 }
 
@@ -1245,7 +1245,7 @@
 #define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
 
 // Force the use of the probe for Z-axis homing
-//#define USE_PROBE_FOR_Z_HOMING
+#define USE_PROBE_FOR_Z_HOMING
 
 /**
  * Z_MIN_PROBE_PIN
@@ -1283,6 +1283,7 @@
  * A Fix-Mounted Probe either doesn't deploy or needs manual deployment.
  *   (e.g., an inductive probe or a nozzle-based probe-switch.)
  */
+
 #ifdef WITHOUT_ABL
   #define PROBE_MANUALLY
 #else
